@@ -129,15 +129,60 @@
  
   <!--  SECTION 5: CONTACT   -->
  
-  <section id="contact">
+<section id="contact">
     <div class="section-container">
+ 
       <div class="section-header">
         <p class="section-eyebrow">Get In Touch</p>
         <h2 class="section-title">Contact Us</h2>
+        <p class="section-sub">Have a question? We'd love to hear from you.</p>
       </div>
-      <p style="text-align:center; color: var(--text2);">Contact form coming in Step 5!</p>
+ 
+      <div class="contact-wrap">
+ 
+        <!-- Left side — info -->
+        <div class="contact-info">
+          <h3>Let's talk</h3>
+          <p>We're a team of 4 JavaScript developers working on our OJT Capstone. Feel free to reach out about our projects.</p>
+          <div class="contact-detail">📍 Pune, Maharashtra</div>
+          <div class="contact-detail">✉️ team@agencyportfolio.dev</div>
+        </div>
+ 
+        <!-- Right side — form -->
+        <div class="contact-form-wrap">
+
+          <form id="contactForm" novalidate>
+ 
+            <div class="form-group">
+              <label for="fname">Full Name</label>
+              <input type="text" id="fname" placeholder="Your name" />
+              <!-- Error message — hidden by default, JS shows it if field is empty -->
+              <span class="field-error" id="nameErr">Please enter your name.</span>
+            </div>
+ 
+            <div class="form-group">
+              <label for="femail">Email Address</label>
+              <input type="email" id="femail" placeholder="you@example.com" />
+              <span class="field-error" id="emailErr">Please enter a valid email.</span>
+            </div>
+ 
+            <div class="form-group">
+              <label for="fmsg">Message</label>
+              <textarea id="fmsg" placeholder="Tell us about your project..."></textarea>
+              <span class="field-error" id="msgErr">Please enter a message.</span>
+            </div>
+ 
+            <button type="submit" class="form-submit">Send Message</button>
+ 
+          </form>
+ 
+          <div class="form-success" id="formSuccess">
+            ✅ Message sent! We'll get back to you shortly.
+          </div>
+ 
+        </div>
+      </div>
     </div>
-    <!-- Contact form -->
   </section>
  
  

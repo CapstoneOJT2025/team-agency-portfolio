@@ -473,6 +473,97 @@ ul {
   gap: 8px;
 }
 
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+ 
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+ 
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text2);
+}
+ 
+.form-group input,
+.form-group textarea {
+  background: var(--bg);
+  border: 0.5px solid var(--border2);
+  border-radius: 8px;
+  padding: 10px 13px;
+  font-size: 14px;
+  color: var(--text);
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: vertical;
+}
+ 
+.form-group textarea {
+  min-height: 110px;
+}
+ 
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--blue);
+}
+ 
+/* Error state — red border when invalid */
+.form-group input.error,
+.form-group textarea.error {
+  border-color: #dc2626;
+}
+ 
+/* Error message text — hidden by default */
+.field-error {
+  font-size: 11px;
+  color: #dc2626;
+  display: none;  /* hidden until JS adds .show */
+}
+ 
+.field-error.show {
+  display: block;
+}
+ 
+.form-submit {
+  background: var(--blue);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 11px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+ 
+.form-submit:hover {
+  background: var(--blue-dark);
+}
+ 
+/* Success message — hidden until JS shows it */
+.form-success {
+  display: none;
+  background: #f0fdf4;
+  border: 0.5px solid #86efac;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 14px;
+  color: #166534;
+  text-align: center;
+}
+ 
+.form-success.show {
+  display: block;
+}
+
    /* FOOTER */
 
 #footer {
