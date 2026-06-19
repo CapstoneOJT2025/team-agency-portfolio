@@ -14,7 +14,7 @@ const projectsData = [
     name: "Interactive Quiz App",
     topic: "State & Logic",
     desc: "Multiple-choice quiz with score tracking, question state management and instant feedback.",
-    link: "#",
+    link: "https://shraddhalimbekar07-wq.github.io/interactive-quiz-app/",
     developer: "Shraddha Limbekar" 
   },
   {
@@ -22,7 +22,7 @@ const projectsData = [
     name: "Expense Tracker",
     topic: "CRUD & localStorage",
     desc: "Log income & expenses with full CRUD, computed totals using reduce/filter, data persists.",
-    link: "#",
+    link: "https://rugvedkadam7.github.io/expense-tracker/",
     developer: "Rugved Kadam" 
   },
   {
@@ -30,7 +30,7 @@ const projectsData = [
     name: "Live News Feed",
     topic: "Async API Integration",
     desc: "News aggregator with async/await, loading states, error handling and category filters.",
-    link: "#",
+    link: "https://vivekingle.github.io/live-news-feed/",
     developer: "Vivek Ingle" 
   },
   {
