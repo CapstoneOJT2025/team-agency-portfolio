@@ -17,6 +17,7 @@
 }
  
 [data-theme="dark"] {
+  /* Dark mode — same variable NAMES, different values */
   --bg: #0f1117;
   --bg2: #1a1d27;
   --bg3: #242736;
@@ -42,7 +43,7 @@
 }
  
 html {
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth; /* smooth scrolling for nav links */
 }
 
 /*
@@ -54,6 +55,7 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  /* transition makes theme switch animate smoothly */
   transition: background 0.3s ease, color 0.3s ease;
 }
  
@@ -70,11 +72,11 @@ ul {
    NAVBAR */
 
 #navbar {
-  position: sticky;        
+  position: sticky;        /* stays at top when you scroll */
   top: 0;
-  z-index: 100;            
+  z-index: 100;            /* always on top of other elements */
   background: var(--nav-bg);
-  backdrop-filter: blur(12px);  
+  backdrop-filter: blur(12px);  /* frosted glass effect */
   border-bottom: 0.5px solid var(--border);
 }
  
@@ -114,6 +116,7 @@ ul {
   color: var(--blue);
 }
  
+/* Active link style — JS adds this class */
 .nav-links a.active {
   color: var(--blue);
   font-weight: 500;
@@ -160,7 +163,7 @@ ul {
 }
  
 .hero-title {
-  font-size: clamp(2rem, 5vw, 3.2rem); 
+  font-size: clamp(2rem, 5vw, 3.2rem); /* clamp = responsive font size */
   font-weight: 600;
   line-height: 1.15;
   letter-spacing: -1px;
@@ -263,6 +266,7 @@ ul {
   padding: 5rem 2rem;
 }
  
+/* Alternating background colors */
 #team     { background: var(--bg2); }
 #projects { background: var(--bg); }
 #contact  { background: var(--bg2); }
@@ -299,6 +303,41 @@ ul {
   color: var(--text3);
 }
 
+.contact-wrap {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.contact-info,
+.contact-form-wrap {
+  background: var(--card);
+  border: 0.5px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.contact-info h3 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  color: var(--text);
+}
+
+.contact-detail {
+  margin-top: 0.85rem;
+  color: var(--text3);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 860px) {
+  .contact-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
    /* TEAM CARDS */
 
   .team-grid {
@@ -307,11 +346,13 @@ ul {
   gap: 20px;
 }
  
+/* Each card — JS creates this HTML, CSS styles it */
 .team-card {
   background: var(--card);
   border: 0.5px solid var(--border);
   border-radius: 14px;
   padding: 1.5rem;
+  
   transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
  
@@ -321,18 +362,20 @@ ul {
   box-shadow: var(--shadow);
 }
  
+/* Avatar circle with initials */
 .avatar {
   width: 54px;
   height: 54px;
   border-radius: 50%;
-  display:inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 14px;
+  margin: 1rem auto; /* centers horizontally */
 }
  
+/* Different colors for each avatar */
 .avatar-blue   { background: #eff6ff; color: #1d4ed8; }
 .avatar-green  { background: #f0fdf4; color: #166534; }
 .avatar-amber  { background: #fef3c7; color: #92400e; }
@@ -341,6 +384,9 @@ ul {
 .member-name {
   font-size: 15px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--text);
   margin-bottom: 2px;
 }
@@ -349,6 +395,9 @@ ul {
   font-size: 12px;
   color: var(--text3);
   margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
  
 .skills-row {
@@ -356,6 +405,8 @@ ul {
   flex-wrap: wrap;
   gap: 5px;
   margin-bottom: 14px;
+  align-items: center;
+  justify-content: center;
 }
  
 .skill-tag {
@@ -365,6 +416,17 @@ ul {
   font-weight: 500;
   padding: 3px 9px;
   border-radius: 20px;
+}
+
+.profile-btn {
+  font-size: 14px;
+  color: var(--blue);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: gap 0.2s;
 }
  
 .github-link {
@@ -402,6 +464,12 @@ ul {
   border-color: var(--blue);
   box-shadow: var(--shadow);
 }
+
+.project-developer {
+  font-size: 14px;
+  color: var(--text2);
+  margin-bottom: 12px;
+}
  
 .project-number {
   font-size: 11px;
@@ -411,6 +479,7 @@ ul {
   margin-bottom: 8px;
 }
  
+/* Blue accent line under number */
 .project-bar {
   width: 28px;
   height: 2px;
@@ -440,13 +509,153 @@ ul {
 }
  
 .project-link {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--blue);
   font-weight: 500;
   display: flex;
   align-items: center;
   gap: 4px;
   transition: gap 0.2s;
+}
+
+.profile-modal{
+
+position:fixed;
+inset:0;
+
+background:rgba(0,0,0,0.65);
+
+display:none;
+align-items:center;
+justify-content:center;
+
+z-index:999;
+
+}
+
+
+.profile-modal.show{
+
+display:flex;
+
+}
+
+
+
+.modal-card{
+
+width:700px;
+max-width:90%;
+
+background:var(--card);
+
+border:1px solid var(--border);
+
+border-radius:25px;
+
+padding:35px;
+
+position:relative;
+
+animation:pop .25s ease;
+
+}
+
+
+
+@keyframes pop{
+
+from{
+transform:scale(.8);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+
+
+.close-modal{
+
+position:absolute;
+right:20px;
+top:15px;
+
+font-size:30px;
+
+background:none;
+border:none;
+
+color:var(--text);
+
+cursor:pointer;
+
+}
+
+
+
+.modal-top{
+
+display:flex;
+gap:25px;
+align-items:center;
+
+}
+
+
+
+.modal-avatar{
+
+width:120px;
+height:120px;
+
+font-size:35px;
+
+}
+
+
+
+#modalRole{
+
+color:var(--blue);
+
+}
+
+
+
+#modalSkills{
+
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+
+}
+
+
+
+.modal-buttons{
+
+display:flex;
+gap:15px;
+margin-top:25px;
+
+}
+
+
+.modal-buttons a{
+
+padding:12px 25px;
+
+border-radius:10px;
+
+background:var(--blue);
+
+color:white;
+
 }
 
 .linkedin-btn {
@@ -470,8 +679,9 @@ ul {
 }
 
 .project-link:hover {
-  gap: 8px;
+  gap: 8px; /* arrow moves right on hover */
 }
+
 
 /* Form */
 form {

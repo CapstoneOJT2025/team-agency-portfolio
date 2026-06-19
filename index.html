@@ -28,6 +28,7 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
  
+      <!-- Theme toggle button — JS will handle the click -->
       <button class="theme-toggle" id="themeToggle">
         <span id="themeIcon">🌙</span>
         <span id="themeText">Dark Mode</span>
@@ -35,7 +36,7 @@
  
     </div>
 
-    <!-- Logo + nav link + theme button -->
+    <!-- Logo + navigation links + theme toggle button will go here -->
   </nav>
  
 
@@ -62,6 +63,7 @@
         <a href="#team" class="btn btn-outline">Meet the Team</a>
       </div>
  
+      <!-- Small stats row -->
       <div class="hero-stats">
         <div class="stat">
           <span class="stat-number">4</span>
@@ -87,23 +89,19 @@
   
   <!--  SECTION 3: TEAM      -->
 
-  <div class="section-header">
-        <p class="section-eyebrow">our team</p>
-        <h2 class="section-title">Our Developers</h2>
-        <p class="section-sub">Four talented developers with a passion for clean code and beautiful design.</p>
-      </div>
-  
-  <!-- <section id="team"> -->
-    <div class="section-container">
-      <div class="section-header">
-      <div class="team-grid" id="teamGrid">
-        <!-- JS will inject cards -->
-      </div>
- 
+  <section id="team">
+    <div class="section-header">
+      <p class="section-eyebrow">our team</p>
+      <h2 class="section-title">Our Developers</h2>
+      <p class="section-sub">Four talented developers with a passion for clean code and beautiful design.</p>
     </div>
-    <!-- Team member cards  -->
-     <div class="team-container"></div>
-  </section> 
+
+    <div class="section-container">
+      <div class="team-grid" id="teamGrid">
+        <!-- JS will inject cards here -->
+      </div>
+    </div>
+  </section>
   
   <!--  SECTION 4: PROJECTS  -->
   
@@ -115,21 +113,20 @@
         <h2 class="section-title">Capstone Projects</h2>
         <p class="section-sub">Six fully functional apps — pure HTML, CSS & JavaScript.</p>
       </div>
-
-
-      
+ 
+      <!--
+        Same idea as team — EMPTY div.
+        JS reads projectsData array and builds cards.
+      -->
       <div class="projects-grid" id="projectsGrid">
-        <!-- JS will inject cards -->
+        <!-- JS will inject cards here -->
       </div>
  
     </div>
-    
+    <!-- Project showcase cards will go here -->
   </section>
- 
- 
-  <!--  SECTION 5: CONTACT   -->
- 
-<section id="contact">
+
+    <section id="contact">
     <div class="section-container">
  
       <div class="section-header">
@@ -184,7 +181,61 @@
       </div>
     </div>
   </section>
+
+  <div class="profile-modal" id="profileModal">
+
+  <div class="modal-card">
+
+    <button class="close-modal" id="closeModal">
+      ×
+    </button>
+
+    <div class="modal-top">
+
+      <div class="avatar modal-avatar" id="modalAvatar">
+      </div>
+
+      <div>
+        <h2 id="modalName"></h2>
+        <p id="modalRole"></p>
+
+        <p>🎓 <span id="modalExp"></span></p>
+        <p>📍 <span id="modalLocation"></span></p>
+        <p>✉️ <span id="modalEmail"></span></p>
+
+      </div>
+
+    </div>
+
+
+    <h3>⚙ Skills</h3>
+
+    <div id="modalSkills"></div>
+
+
+    <h3>About</h3>
+
+    <p id="modalBio"></p>
+
+
+    <div class="modal-buttons">
+
+      <a id="modalGithub" target="_blank">
+        GitHub
+      </a>
+
+      <a id="modalLinkedin" target="_blank">
+        LinkedIn
+      </a>
+
+    </div>
+
+
+  </div>
+
+</div>
  
+
  
   <!--  FOOTER               -->
  
@@ -194,7 +245,7 @@
   
   </footer>
  
-    
+      <!-- JavaScript file linked at the bottom (always!) -->
       <script src="script.js"></script>
 
 </body>

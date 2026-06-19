@@ -6,42 +6,48 @@ const projectsData = [
     name: "Team Agency Portfolio",
     topic: "DOM & Layout",
     desc: "Data-driven landing page with dark/light theme toggle, team profiles and project showcase.",
-    link: "https://capstoneojt2025.github.io/team-agency-portfolio/"
+    link: "https://capstoneojt2025.github.io/team-agency-portfolio/",
+    developer: "Vivek Ingle"
   },
   {
     number: "02",
     name: "Interactive Quiz App",
     topic: "State & Logic",
     desc: "Multiple-choice quiz with score tracking, question state management and instant feedback.",
-    link: "#"
+    link: "#",
+    developer: "Shraddha Limbekar" 
   },
   {
     number: "03",
     name: "Expense Tracker",
     topic: "CRUD & localStorage",
     desc: "Log income & expenses with full CRUD, computed totals using reduce/filter, data persists.",
-    link: "#"
+    link: "#",
+    developer: "Rugved Kadam" 
   },
   {
     number: "04",
     name: "Live News Feed",
     topic: "Async API Integration",
     desc: "News aggregator with async/await, loading states, error handling and category filters.",
-    link: "#"
+    link: "#",
+    developer: "Vivek Ingle" 
   },
   {
     number: "05",
     name: "GitHub Explorer",
     topic: "Multi-Endpoint APIs",
     desc: "Search any GitHub username to view profile, repos, stats and language breakdown chart.",
-    link: "#"
+    link: "#",
+    developer: "Vivek Ingle" 
   },
   {
     number: "06",
     name: "Kanban Task Board",
     topic: "Drag & Drop & State",
     desc: "Trello-style board with drag-and-drop, card CRUD, and full localStorage persistence.",
-    link: "#"
+    link: "#",
+    developer: "Vivek Ingle" 
   }
 ]
 
@@ -55,7 +61,10 @@ const teamData = [
     avatarColor: "avatar-blue",
     github: "vivekingle",
     linkedin: "vivek-ingle-7ab599386",
-    bio: "Leads the team and handles full-stack features, from UI to logic."
+    bio: "Leads the team and handles full-stack features, from UI to logic. Loves clean code and simple solutions.",
+    email: "vivekingle226@gmail.com",
+    location: "Pune, India",
+    experience: "2nd Semester · CS Student",
   },
   {
     initials: "RK",
@@ -65,7 +74,10 @@ const teamData = [
     avatarColor: "avatar-green",
     github: "rugvedkadam7",
     linkedin: "rugved-kadam-817372386",
-    bio: "Builds and styles the UI components across the project."
+    bio: "Leads the team and handles full-stack features, from UI to logic. Loves clean code and simple solutions.",
+    email: "rugvedkadam7@gmail.com",
+    location: "Pune, India",
+    experience: "2nd Semester · CS Student",
   },
   {
     initials: "SL",
@@ -75,7 +87,10 @@ const teamData = [
     avatarColor: "avatar-amber",
     github: "shraddhalimbekar07-wq",
     linkedin: "shraddha-limbekar-91667b385",
-    bio: "Handles the core JavaScript logic and DOM interactions."
+    bio: "Leads the team and handles full-stack features, from UI to logic. Loves clean code and simple solutions.",
+    email: "shraddhalimbekar07@gmail.com",
+    location: "Pune, India",
+    experience: "2nd Semester · CS Student",
   },
   {
     initials: "AB",
@@ -85,7 +100,10 @@ const teamData = [
     avatarColor: "avatar-purple",
     github: "akshatabirader",
     linkedin: "akshata-biradar-91667b385",
-    bio: "Works on API calls and async data flow for the apps."
+    bio: "Leads the team and handles full-stack features, from UI to logic. Loves clean code and simple solutions.",
+    email: "akshatabiradar@gmail.com",
+    location: "Pune, India",
+    experience: "2nd Semester · CS Student",
   }
 ]
 
@@ -94,14 +112,14 @@ const teamData = [
 function renderTeamCards() {
  
   const teamGrid = document.getElementById('teamGrid')
-  const cardsHTML = teamData.map(function(member) {
+  const cardsHTML = teamData.map(function(member, index) {
  
     const skillsHTML = member.skills.map(function(skill) {
       return `<span class="skill-tag">${skill}</span>`
     }).join('')
 
     return `
-      <div class="team-card">
+      <div class="team-card" onclick="openProfile(${index})">
  
         <div class="avatar ${member.avatarColor}">
           ${member.initials}
@@ -114,11 +132,8 @@ function renderTeamCards() {
           ${skillsHTML}
         </div>
 
-        <a class="github-btn" onclick="window.open('https://github.com/${member.github}', '_blank')">
-          ⬡ github
-        </a>
-        <a class="linkedin-btn" onclick="window.open('https://www.linkedin.com/in/${member.linkedin}', '_blank')">
-          ⬡ linkedin
+        <a class="profile-btn" type="button">
+          View profile →
         </a>
 
       </div>
@@ -127,6 +142,46 @@ function renderTeamCards() {
  
   teamGrid.innerHTML = cardsHTML
 
+}
+
+
+function openProfile(id){
+
+  const member = teamData[id]
+  if (!member) return
+
+  document.getElementById("modalName").textContent = member.name
+  document.getElementById("modalRole").textContent = member.role
+
+  document.getElementById("modalExp").textContent = member.experience
+  document.getElementById("modalLocation").textContent = member.location
+  document.getElementById("modalEmail").textContent = member.email
+  document.getElementById("modalBio").textContent = member.bio
+  document.getElementById("modalAvatar").textContent = member.initials
+  document.getElementById("modalAvatar").className =
+    "avatar modal-avatar " + member.avatarColor
+
+  document.getElementById("modalSkills").innerHTML =
+    member.skills.map(skill =>`<span class="skill-tag">${skill}</span>`).join("")
+
+  document.getElementById("modalGithub").href = "https://github.com/" + member.github
+  document.getElementById("modalLinkedin").href = "https://linkedin.com/in/" + member.linkedin
+  document.getElementById("profileModal").classList.add("show")
+}
+
+function setupModalEvents() {
+  const closeModal = document.getElementById("closeModal")
+  const profileModal = document.getElementById("profileModal")
+
+  closeModal.onclick = function() {
+    profileModal.classList.remove("show")
+  }
+
+  profileModal.onclick = function(e) {
+    if (e.target.id === "profileModal") {
+      profileModal.classList.remove("show")
+    }
+  }
 }
  
  
@@ -144,9 +199,10 @@ function renderProjectCards() {
         <p class="project-name">${project.name}</p>
         <p class="project-topic">${project.topic}</p>
         <p class="project-desc">${project.desc}</p>
-        <a href="${project.link}" class="project-link">
+        <a href="${project.link}" class="project-link" target="_blank">
           View project →
         </a>
+           <p class="project-developer">👤 Developer : ${project.developer}</p>
       </div>
     `
   }).join('')
@@ -181,7 +237,7 @@ function setupThemeToggle() {
  
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme)
- 
+ x
     if (theme === 'dark') {
       themeIcon.textContent = '☀️'
       themeText.textContent = 'Light Mode'
@@ -233,7 +289,7 @@ function setupContactForm() {
  
 function clearErrors() {
   document.querySelectorAll('.error').forEach(el => el.classList.remove('error'))
-  document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'))
+  document.querySelectorAll('.field-error').forEach(el => el.classList.remove('show'))
 }
 function showError(inputId, errorId) {
   document.getElementById(inputId).classList.add('error')
@@ -271,5 +327,7 @@ document.addEventListener('DOMContentLoaded', function() {
   renderTeamCards()      // Build team section from data
   renderProjectCards()   // Build projects section from data
   setupThemeToggle()     // Wire up dark/light toggle
+  setupContactForm()     // Initialize contact form validation
+  setupModalEvents()     // Initialize modal open/close behavior
   setupActiveNav()       // Highlight nav link on scroll
 })
