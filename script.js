@@ -30,24 +30,24 @@ const projectsData = [
     name: "Live News Feed",
     topic: "Async API Integration",
     desc: "News aggregator with async/await, loading states, error handling and category filters.",
-    link: "https://vivekingle.github.io/live-news-feed/",
-    developer: "Vivek Ingle" 
+    link: "https://capstoneojt2025.github.io/live-news-feed/",
+    developer: "Akshata Biradar" 
   },
   {
     number: "05",
     name: "GitHub Explorer",
     topic: "Multi-Endpoint APIs",
     desc: "Search any GitHub username to view profile, repos, stats and language breakdown chart.",
-    link: "#",
-    developer: "Vivek Ingle" 
+    link: "https://capstoneojt2025.github.io/github-developer-explorer/",
+    developer: "Vivek Ingle , Shraddha Limbekar" 
   },
   {
     number: "06",
     name: "Kanban Task Board",
     topic: "Drag & Drop & State",
     desc: "Trello-style board with drag-and-drop, card CRUD, and full localStorage persistence.",
-    link: "#",
-    developer: "Vivek Ingle" 
+    link: "https://capstoneojt2025.github.io/kanban-task-board/",
+    developer: "Rugved Kadam , Akshata Biradar" 
   }
 ]
 
@@ -56,7 +56,7 @@ const teamData = [
   {
     initials: "VI",
     name: "Vivek Ingle",
-    role: "Team Lead · Full Stack",
+    role: "Team Lead · Frontend Developer",
     skills: ["JavaScript", "HTML/CSS", "DOM"],
     avatarColor: "avatar-blue",
     github: "vivekingle",
@@ -82,7 +82,7 @@ const teamData = [
   {
     initials: "SL",
     name: "Shraddha limbekar",
-    role: "JS Logic Developer",
+    role: "Frontend Developer",
     skills: ["JavaScript", "HTML/CSS", "DOM"],
     avatarColor: "avatar-amber",
     github: "shraddhalimbekar07-wq",
@@ -95,7 +95,7 @@ const teamData = [
   {
     initials: "AB",
     name: "Akshata Biradar",
-    role: "API & Async Specialist",
+    role: "Frontend Developer",
     skills: ["JavaScript", "HTML/CSS", "DOM"],
     avatarColor: "avatar-purple",
     github: "akshatabirader",
@@ -106,8 +106,6 @@ const teamData = [
     experience: "2nd Semester · CS Student",
   }
 ]
-
-
 
 function renderTeamCards() {
  
