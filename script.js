@@ -39,7 +39,7 @@ const projectsData = [
     topic: "Multi-Endpoint APIs",
     desc: "Search any GitHub username to view profile, repos, stats and language breakdown chart.",
     link: "https://capstoneojt2025.github.io/github-developer-explorer/",
-    developer: "Vivek Ingle , Shraddha Limbekar" 
+    developer: "Shraddha Limbekar , Vivek Ingle" 
   },
   {
     number: "06",
