@@ -21,7 +21,7 @@ const projectsData = [
     name: "Expense Tracker",
     topic: "CRUD & localStorage",
     desc: "Log income & expenses with full CRUD, computed totals using reduce/filter, data persists.",
-    link: "https://rugvedkadam7.github.io/expense-tracker/",
+    link: "https://capstoneojt2025.github.io/expense-tracker/",
     developer: "Rugved Kadam"
   },
   {
