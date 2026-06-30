@@ -55,5 +55,5 @@ function renderProjectCards() {
     `
   }).join('')
 
-  projectsGrid.innerHTML = cardsHTML
+  projectsGrid.innerHTML = cardsHTML 
 }
